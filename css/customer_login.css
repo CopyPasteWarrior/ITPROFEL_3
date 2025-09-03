@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 10px;
+  
+  text-align: center;
+}
+
+.company-logo {
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.company-logo img {
+  width: 120px; /* adjust logo size */
+  height: auto;
+  display: block;
+}
+
+/* Remove grey background from form */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: #e0e0e0;   /* softer grey instead of harsh grey */
+    padding: 20px;         /* space inside the box */
+    border-radius: 12px;   /* rounded corners */
+  
+}
+
+.form-group {
+    display: flex;
+    align-items: center;    /* vertically center label & input */
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    width: 100px;           /* fixed width so inputs align */
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    flex: 1;                /* input takes remaining space */
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  
+  background-color: #f9f9f9;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #a777e3;
+  background-color: #fff;
+  
+}
+
+.login-button {
+    background-color: #4285f4;
+    color: black;
+    border: none;
+    padding: 14px;
+    border-radius: 45px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px auto 0;      /* 🔑 centers the button */
+   
+    
+    width: 100%;
+    max-width: 150px;         /* button won’t stretch too much */
+    display: block;
+    text-align: center;
+}
+
+
+.login-button:hover {
+  background-color: #3367d6;
+}
+
+.login-button:active {
+  transform: translateY(1px);
+}
+
+.footer-text {
+  margin-top: 25px;
+  color: #888;
+  font-size: 14px;
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 20px;
+    margin: 0 15px;
+  }
+}
