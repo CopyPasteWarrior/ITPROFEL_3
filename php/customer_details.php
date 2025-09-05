@@ -53,7 +53,7 @@ $transaction_name = $_SESSION['transaction_name'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Number</title>
     <link rel="stylesheet" href="../css/customer_details.css">
-    <link rel="icon" type="image/png" href="../imgs/moelci logo.png">
+    <link rel="icon" type="image/png" href="../imgs/moelci_logo.png">
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
 
 </head>

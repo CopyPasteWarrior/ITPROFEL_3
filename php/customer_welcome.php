@@ -18,14 +18,14 @@ $current_time = date('H:i:s');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/customer_welcome.css">
-    <link rel="icon" type="image/png" href="../imgs/moelci logo.png">
+    <link rel="icon" type="image/png" href="../imgs/moelci_logo.png">
     <title>MOELCI II Service Selection</title>
 
 </head>
 <body>
    <div class="logo-container">
     <div class="company-logo">
-        <img src="../imgs/moelci logo.png" alt="Company Logo" class="logo-image" />
+        <img src="../imgs/moelci_logo.png" alt="Company Logo" class="logo-image" />
     </div>
     
     <div class="welcome-text">
