@@ -38,8 +38,19 @@ $transactions = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </form>
             </div>
             <?php endforeach; ?>
+
+            <!-- New Connection Seminar button -->
+            <div class="seminar-button">
+                <form action="customer_details.php" method="POST">
+                    <input type="hidden" name="transaction_id" value="new_connection_seminar">
+                    <button type="submit" class="menu-button">New Connection Seminar</button>
+                </form>
+            </div>
         </div>
     </div>
+</body>
+</html>
+
 
     <!--<script>
         document.querySelectorAll('.menu-button').forEach(button => {

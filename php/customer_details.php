@@ -28,8 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['transaction_id'])) {
         $new_number = $last_number + 1;
         $queue_number = $transaction['prefix'] . '-' . str_pad($new_number, 4, '0', STR_PAD_LEFT);
         
-        // Insert into queue
-        $stmt = $pdo->prepare("INSERT INTO queue (transaction_id, queue_number) VALUES (?, ?)");
+        // Insert into queue WITH status set to 'waiting'
+        $stmt = $pdo->prepare("INSERT INTO queue (transaction_id, queue_number, status) VALUES (?, ?, 'waiting')");
         $stmt->execute([$transaction_id, $queue_number]);
         
         $_SESSION['queue_number'] = $queue_number;
@@ -51,11 +51,9 @@ $transaction_name = $_SESSION['transaction_name'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Number</title>
+    <title>MOELCI II Ticketing</title>
     <link rel="stylesheet" href="../css/customer_details.css">
     <link rel="icon" type="image/png" href="../imgs/moelci_logo.png">
-   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
-
 </head>
 <body>
     <div class="container">
@@ -81,12 +79,30 @@ $transaction_name = $_SESSION['transaction_name'];
         </div>
     </div>
 
-        <script>
+    <script>
         function cancelQueue() {
             if(confirm('Are you sure you want to cancel?')) {
-                // In a real application, you would send an AJAX request to update the queue status
-                alert('Your queue number has been cancelled.');
-                window.location.href = 'customer_service.php';
+                // Send AJAX request to remove from queue
+                fetch('cancel_queue.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'queue_number=<?php echo $queue_number; ?>'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Your queue number has been cancelled.');
+                        window.location.href = 'customer_service.php';
+                    } else {
+                        alert('Error cancelling queue number.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error cancelling queue number.');
+                });
             }
         }
     </script>
