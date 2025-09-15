@@ -79,7 +79,7 @@ $transaction_name = $_SESSION['transaction_name'];
         </div>
     </div>
 
-    <script>
+   <!-- <script>
         function cancelQueue() {
             if(confirm('Are you sure you want to cancel?')) {
                 // Send AJAX request to remove from queue
@@ -105,6 +105,6 @@ $transaction_name = $_SESSION['transaction_name'];
                 });
             }
         }
-    </script>
+    </script> -->
 </body>
 </html>
